@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>learn tcm with phoebe - reading the Yellow Emperor's classic, honestly</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: .85; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(58,78,92,.16); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--faint); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff, #F2F5F6); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+  .note-band { margin-top: 1.4rem; background: var(--amber-50); border: 1px solid var(--hairline); border-left: 4px solid var(--amber); border-radius: 12px; padding: .9rem 1.1rem; font-size: .88rem; color: var(--ink); }
+  .note-band b { color: var(--amber-ink); }
+
+  .project-band { margin-top: 1.4rem; background: var(--indigo-50); border: 1px solid var(--hairline); border-left: 4px solid var(--indigo); border-radius: 12px; padding: .9rem 1.1rem; font-size: .88rem; color: var(--ink); }
+  .project-band b { color: var(--indigo-deep); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn TCM with Phoebe</div>
+    <h1>Reading the Yellow Emperor: <span class="accent">黄帝内经</span> for curious moderns</h1>
+    <p class="sub">A guided first read of China's foundational medical classic - the ideas (yin-yang, five phases, the zang-fu body, living with the seasons), the famous passages in original + pinyin + plain English, and an honesty rail that never blurs what the text says with what modern evidence shows.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="6">6</b><span>sessions</span></div>
+      <div class="stat"><b data-count="2000">2000</b><span>years of text, read honestly</span></div>
+      <div class="stat"><b data-count="5">5</b><span>phases on the live wheel</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="course-grid">
+      <a class="course-card" href="courses/01-the-book.html" style="--diff:#34D399">
+        <span class="cicon">📜</span>
+        <span class="cnum">Session 1 · easiest</span>
+        <h3>The book: one emperor, one physician, two millennia</h3>
+        <p>What the Neijing actually is - two books, a question-and-answer stage play, compiled over centuries - and how to read a 2,000-year-old classic without believing or dismissing it.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span><span class="pill light">Orientation</span></span>
+      </a>
+      <a class="course-card" href="courses/02-yin-yang.html" style="--diff:#34D399">
+        <span class="cicon">☯️</span>
+        <span class="cnum">Session 2 · easiest</span>
+        <h3>Yin-yang 阴阳: the operating system</h3>
+        <p>The paired-opposites logic underneath every page - day and night, activity and rest, exterior and interior - and what kind of idea it actually is.</p>
+        <span class="meta"><span class="pill light">Core model</span></span>
+      </a>
+      <a class="course-card" href="courses/03-five-phases.html" style="--diff:#FBBF24">
+        <span class="cicon">🌀</span>
+        <span class="cnum">Session 3 · building</span>
+        <h3>Five phases 五行 + the live wheel</h3>
+        <p>Wood, fire, earth, metal, water - the correspondence system that organizes organs, seasons, emotions and tastes, on an interactive wheel with both cycles animated.</p>
+        <span class="meta"><span class="pill light">The wheel lives here</span></span>
+      </a>
+      <a class="course-card" href="courses/04-zang-fu.html" style="--diff:#FBBF24">
+        <span class="cicon">🫀</span>
+        <span class="cnum">Session 4 · building</span>
+        <h3>The body according to the Neijing: zang-fu 脏腑</h3>
+        <p>Five zang, six fu, qi, blood and essence - functional systems, not anatomy. Why the TCM "spleen" is not your spleen, and why that distinction keeps everyone honest.</p>
+        <span class="meta"><span class="pill light">The text's body</span></span>
+      </a>
+      <a class="course-card" href="courses/05-seasons.html" style="--diff:#FBBF24">
+        <span class="cicon">🍂</span>
+        <span class="cnum">Session 5 · building</span>
+        <h3>Living with the seasons: 四气调神</h3>
+        <p>The famous second chapter: four seasonal regimens for sleep, activity and mood, and the "treat the not-yet-ill" prevention ideal that reads surprisingly modern.</p>
+        <span class="meta"><span class="pill light">The lifestyle chapters</span></span>
+      </a>
+      <a class="course-card" href="courses/06-neijing-today.html" style="--diff:#FB923C">
+        <span class="cicon">⚖️</span>
+        <span class="cnum">Session 6 · deepening</span>
+        <h3>The Neijing today: what holds, what doesn't</h3>
+        <p>The honest closing: the text as cultural treasure vs medical evidence in 2026 - what research actually shows, the safety flags, and how to keep reading.</p>
+        <span class="meta"><span class="pill light">The honest verdict</span></span>
+      </a>
+    </div>
+    <div class="diff-legend">
+      <span><i style="background:#34D399"></i>easiest - start here</span>
+      <span><i style="background:#FBBF24"></i>building - the model</span>
+      <span><i style="background:#FB923C"></i>deepening - the reckoning</span>
+    </div>
+
+    <div class="project-band">
+      <b>🧩 The running project: your Neijing map.</b> A one-page personal reference you fill in session by session - the yin-yang pairs, the five-phase correspondence rows, the zang-fu functions - plus a seasonal self-observation journal started in Session 1, in the spirit of 四气调神 (framed honestly as reflection, not therapy).
+    </div>
+
+    <div class="note-band">
+      <b>The honesty rail (strictest edition).</b> This course teaches what a 2,000-year-old text SAYS - clearly labeled "the text says" or "tradition holds" - and separately reports what modern research shows, with numbers, where it exists. It is a reading course about a foundational classic and a living tradition. It is not medical advice, and nothing here replaces actual medical care.
+    </div>
+
+    <div class="paths">
+      <h2>Choose your focus 🧭</h2>
+      <p class="plede">Everyone starts at Session 1 for the book and the reading stance. After that, follow your curiosity - or take all six in order.</p>
+      <div class="path"><b>🌀 The model, fast</b>
+        <a class="pstep" href="courses/02-yin-yang.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-five-phases.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-zang-fu.html">4</a>
+      </div>
+      <div class="path"><b>🍂 The lifestyle thread</b>
+        <a class="pstep" href="courses/01-the-book.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-seasons.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-neijing-today.html">6</a>
+      </div>
+      <div class="path"><b>📿 The full read</b>
+        <a class="pstep" href="courses/01-the-book.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-yin-yang.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-five-phases.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-zang-fu.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-seasons.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-neijing-today.html">6</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">The whole course at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>learn-tcm-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a> · a reading course, not medical advice</span>
+  </footer>
+</main>
+
+<script>
+window.MINDMAP_DATA = {
+  title: "黄帝内经",
+  centerColor: "#22303A",
+  sessions: [
+    { label: "The\nbook", href: "courses/01-the-book.html", color: "#34D399",
+      concepts: [
+        { label: "Suwen & Lingshu", href: "courses/01-the-book.html" },
+        { label: "Who wrote it", href: "courses/01-the-book.html" },
+        { label: "How to read it", href: "courses/01-the-book.html" } ] },
+    { label: "Yin-yang\n阴阳", href: "courses/02-yin-yang.html", color: "#34D399",
+      concepts: [
+        { label: "The dyad", href: "courses/02-yin-yang.html" },
+        { label: "Transformation", href: "courses/02-yin-yang.html" },
+        { label: "Body applications", href: "courses/02-yin-yang.html" } ] },
+    { label: "Five phases\n五行", href: "courses/03-five-phases.html", color: "#FBBF24",
+      concepts: [
+        { label: "Correspondences", href: "courses/03-five-phases.html" },
+        { label: "Generating cycle", href: "courses/03-five-phases.html" },
+        { label: "Controlling cycle", href: "courses/03-five-phases.html" } ] },
+    { label: "Zang-fu\n脏腑", href: "courses/04-zang-fu.html", color: "#FBBF24",
+      concepts: [
+        { label: "Functional organs", href: "courses/04-zang-fu.html" },
+        { label: "Qi, blood, essence", href: "courses/04-zang-fu.html" },
+        { label: "Not anatomy", href: "courses/04-zang-fu.html" } ] },
+    { label: "Seasons\n四气调神", href: "courses/05-seasons.html", color: "#FBBF24",
+      concepts: [
+        { label: "Four regimens", href: "courses/05-seasons.html" },
+        { label: "治未病 prevention", href: "courses/05-seasons.html" },
+        { label: "Your journal", href: "courses/05-seasons.html" } ] },
+    { label: "Neijing\ntoday", href: "courses/06-neijing-today.html", color: "#FB923C",
+      concepts: [
+        { label: "Evidence status", href: "courses/06-neijing-today.html" },
+        { label: "Safety flags", href: "courses/06-neijing-today.html" },
+        { label: "Keep reading", href: "courses/06-neijing-today.html" } ] }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>
